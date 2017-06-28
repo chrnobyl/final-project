@@ -1,24 +1,5 @@
 # README
+# final-project
+Pet adoption app that matches prospective owners to shelter pets. Users can log in and scroll through a list of pets sorted preferences of age, location, size, etc. Saved pets are added to a list. If a user chooses to adopt, they can send a message to the shelter that posted the pet and arrange a meeting.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Shelters can log in list their pets. Pet attributes include name, age, sex, species, size, description.
