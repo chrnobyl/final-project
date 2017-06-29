@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :pets
       resources :users
       resources :shelters
+      resources :user_pets
     end
   end
 end
