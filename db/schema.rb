@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170628155500) do
     t.integer "weight"
     t.string "color"
     t.string "sex"
+    t.string "picture"
     t.bigint "shelter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -31,7 +32,10 @@ ActiveRecord::Schema.define(version: 20170628155500) do
   create_table "shelters", force: :cascade do |t|
     t.string "name"
     t.string "password"
-    t.string "location"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.integer "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

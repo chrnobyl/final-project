@@ -7,6 +7,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.integer :weight
       t.string :color
       t.string :sex
+      t.string :picture
       t.belongs_to :shelter, foreign_key: true
 
       t.timestamps
