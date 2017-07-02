@@ -1,6 +1,6 @@
 class Api::V1::UserPetsController < ApplicationController
   def index
-    user_pets = UserPet.all
+    user_pets = User.first.pets
     render json: user_pets
   end
 
@@ -13,5 +13,5 @@ class Api::V1::UserPetsController < ApplicationController
   def user_pet_params
     params.require(:user_pet).permit(:user_id, :pet_id)
   end
-  
+
 end
