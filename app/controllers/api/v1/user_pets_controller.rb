@@ -9,6 +9,13 @@ class Api::V1::UserPetsController < ApplicationController
     render json: user_pet
   end
 
+  def destroy
+    user_pet = UserPet.find(params[:id])
+    user_pet.destroy
+    render json: user_pet
+  end
+
+
   private
   def user_pet_params
     params.require(:user_pet).permit(:user_id, :pet_id)

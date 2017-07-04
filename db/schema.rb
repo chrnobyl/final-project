@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170628155500) do
     t.integer "weight"
     t.string "color"
     t.string "sex"
+    t.string "description"
     t.string "picture"
     t.bigint "shelter_id"
     t.datetime "created_at", null: false
