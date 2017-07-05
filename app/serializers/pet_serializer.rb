@@ -1,3 +1,3 @@
 class PetSerializer < ActiveModel::Serializer
-  attributes :id, :name, :age, :color, :sex, :picture
+  attributes :id, :name, :age, :color, :sex, :picture, :description
 end
