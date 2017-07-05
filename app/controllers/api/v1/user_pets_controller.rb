@@ -9,12 +9,16 @@ class Api::V1::UserPetsController < ApplicationController
     render json: user_pet
   end
 
-  def destroy
-    user_pet = UserPet.find(params[:id])
-    user_pet.destroy
+  def show
+    user_pet = UserPet.find_by(id: params[:id])
     render json: user_pet
   end
 
+  def destroy
+    user_pet = UserPet.find_by(id: params[:id])
+    user_pet.destroy
+    render json: user_pet
+  end
 
   private
   def user_pet_params
