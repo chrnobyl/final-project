@@ -5,8 +5,10 @@ Rails.application.routes.draw do
       resources :pets
       resources :users
       resources :shelters
-      resources :user_pets, except: :show
+      resources :user_pets, except: [:index, :create, :show, :destroy]
 
+      get '/users/:id/user_pets', to: 'user_pets#index'
+      post '/users/:id/user_pets', to: 'user_pets#create'
       get '/users/:id/user_pets/:id', to: 'user_pets#show'
       delete '/users/:id/user_pets/:id', to: 'user_pets#destroy'
     end

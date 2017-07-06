@@ -6,7 +6,8 @@ class Api::V1::UserPetsController < ApplicationController
 
   def create
     user_pet = UserPet.create(user_pet_params)
-    render json: user_pet
+    pet = Pet.find_by(id: user_pet.pet_id)
+    render json: pet
   end
 
   def show
