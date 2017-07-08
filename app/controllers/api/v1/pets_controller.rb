@@ -8,4 +8,8 @@ class Api::V1::PetsController < ApplicationController
     pet = Pet.find_by(id: params[:id])
     render json: pet
   end
+
+  def search
+    form_i = params[:form] || nil
+  end
 end
