@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20170628155500) do
     t.string "sex"
     t.string "description"
     t.string "picture"
+    t.string "email"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
     t.bigint "shelter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,7 +39,9 @@ ActiveRecord::Schema.define(version: 20170628155500) do
     t.string "street"
     t.string "city"
     t.string "state"
-    t.integer "zip"
+    t.string "zip"
+    t.string "email"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

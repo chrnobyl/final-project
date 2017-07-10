@@ -8,6 +8,11 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.string :sex
       t.string :description
       t.string :picture
+      t.string :email
+      t.string :city
+      t.string :state
+      t.string :zip
+
       t.belongs_to :shelter, foreign_key: true
 
       t.timestamps
