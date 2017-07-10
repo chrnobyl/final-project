@@ -12,6 +12,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :state
       t.string :zip
+      t.string :petfinder_shelterId
 
       t.belongs_to :shelter, foreign_key: true
 

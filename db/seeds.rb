@@ -21,7 +21,7 @@ shelters_hash = shelters_hash["petfinder"]["shelters"]["shelter"]
 
 puts "seeding shelters"
 shelters_hash.each do |shelter|
-  Shelter.create(name: shelter["name"]["$t"], password: "dogs", city: shelter["city"]["$t"], state: shelter["state"]["$t"], zip: shelter["zip"]["$t"], email: shelter["email"]["$t"], phone: shelter["phone"]["$t"])
+  Shelter.create(name: shelter["name"]["$t"], password: "dogs", city: shelter["city"]["$t"], state: shelter["state"]["$t"], zip: shelter["zip"]["$t"], email: shelter["email"]["$t"], phone: shelter["phone"]["$t"], petfinder_shelterId: shelter["id"]["$t"])
 end
 # Shelter.create(name: "North Shore Animal League", password: "dogs", street: "25 Davis Ave", city: "Port Washington", state: "NY", zip: 11050)
 
@@ -35,14 +35,14 @@ User.create(name: "Chris", password: "dogs")
 puts "seeding dogs"
 dogs_hash.each do |dog|
   if dog["media"] != {}
-    Pet.create(name: dog["name"]["$t"], species: "dog", age: dog["age"]["$t"], size: dog["size"]["$t"], sex: dog["sex"]["$t"], description: dog["description"]["$t"], picture: dog["media"]["photos"]["photo"][3]["$t"], email: dog["contact"]["email"]["$t"], city: dog["contact"]["city"]["$t"], state: dog["contact"]["state"]["$t"], zip: dog["contact"]["zip"]["$t"], shelter_id: 1)
+    Pet.create(name: dog["name"]["$t"], species: "dog", age: dog["age"]["$t"], size: dog["size"]["$t"], sex: dog["sex"]["$t"], description: dog["description"]["$t"], picture: dog["media"]["photos"]["photo"][3]["$t"], email: dog["contact"]["email"]["$t"], city: dog["contact"]["city"]["$t"], state: dog["contact"]["state"]["$t"], zip: dog["contact"]["zip"]["$t"], petfinder_shelterId: dog["shelterId"]["$t"])
   end
 end
 
 puts "seeding cats"
 cats_hash.each do |cat|
   if cat["media"] != {} && cat["name"]["$t"] != "FOSTER HOMES NEEDED" && cat["description"] != {}
-    Pet.create(name: cat["name"]["$t"], species: "cat", age: cat["age"]["$t"], size: cat["size"]["$t"], sex: cat["sex"]["$t"], description: cat["description"]["$t"], picture: cat["media"]["photos"]["photo"][3]["$t"], email: cat["contact"]["email"]["$t"], city: cat["contact"]["city"]["$t"], state: cat["contact"]["state"]["$t"], zip: cat["contact"]["zip"]["$t"], shelter_id: 1)
+    Pet.create(name: cat["name"]["$t"], species: "cat", age: cat["age"]["$t"], size: cat["size"]["$t"], sex: cat["sex"]["$t"], description: cat["description"]["$t"], picture: cat["media"]["photos"]["photo"][3]["$t"], email: cat["contact"]["email"]["$t"], city: cat["contact"]["city"]["$t"], state: cat["contact"]["state"]["$t"], zip: cat["contact"]["zip"]["$t"], petfinder_shelterId: cat["shelterId"]["$t"])
   end
 end
 

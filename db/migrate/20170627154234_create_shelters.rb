@@ -9,6 +9,7 @@ class CreateShelters < ActiveRecord::Migration[5.1]
       t.string :zip
       t.string :email
       t.string :phone
+      t.string :petfinder_shelterId
 
       t.timestamps
     end

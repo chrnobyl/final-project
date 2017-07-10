@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170628155500) do
     t.string "city"
     t.string "state"
     t.string "zip"
+    t.string "petfinder_shelterId"
     t.bigint "shelter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170628155500) do
     t.string "zip"
     t.string "email"
     t.string "phone"
+    t.string "petfinder_shelterId"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -3,4 +3,5 @@ class Api::V1::SheltersController < ApplicationController
     shelters = Shelter.all
     render json: shelters
   end
+
 end
