@@ -10,4 +10,16 @@ class Pet < ApplicationRecord
   def self.by_sex(sex)
     self.where("sex LIKE '#{sex}'")
   end
+
+  def self.by_city(city)
+    self.where("city LIKE '#{city}'")
+  end
+
+  def self.by_size(size)
+    self.where("size LIKE '#{size}'")
+  end
+
+  def self.by_age(age)
+    self.where("age LIKE '#{age}'")
+  end
 end
