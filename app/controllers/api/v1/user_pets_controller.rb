@@ -17,7 +17,7 @@ class Api::V1::UserPetsController < ApplicationController
 
   def destroy
     user_pet = UserPet.find_by(id: params[:id])
-    user_pet.destroy
+    user_pet.destroy!
     render json: user_pet
   end
 
