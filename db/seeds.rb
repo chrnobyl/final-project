@@ -7,15 +7,15 @@ require 'rest-client'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-all_dogs = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=dog&location=NY&count=26&output=basic&format=json")
+all_dogs = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=dog&location=NY&count=200&output=basic&format=json")
 dogs_hash = JSON.parse(all_dogs)
 dogs_hash = dogs_hash["petfinder"]["pets"]["pet"]
 
-all_cats = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=cat&location=NY&count=25&output=basic&format=json")
+all_cats = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=cat&location=NY&count=200&output=basic&format=json")
 cats_hash = JSON.parse(all_cats)
 cats_hash = cats_hash["petfinder"]["pets"]["pet"]
 
-all_shelters = RestClient.get("http://api.petfinder.com/shelter.find?key=#{ENV['PETFINDER_API_KEY']}&location=NY&count=25&output=basic&format=json")
+all_shelters = RestClient.get("http://api.petfinder.com/shelter.find?key=#{ENV['PETFINDER_API_KEY']}&location=NY&count=200&output=basic&format=json")
 shelters_hash = JSON.parse(all_shelters)
 shelters_hash = shelters_hash["petfinder"]["shelters"]["shelter"]
 
