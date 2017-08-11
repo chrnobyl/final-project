@@ -5,12 +5,12 @@ class Api::V1::PetsController < ApplicationController
   end
 
   def create
-
     species = params[:species] || '%'
     sex = params[:sex] || '%'
     city = params[:city] || '%'
     size = params[:size] || '%'
     age = params[:age] || '%'
+    
     pets = Pet.by_species(species).by_sex(sex).by_city(city).by_size(size).by_age(age)
 
     render json: pets
