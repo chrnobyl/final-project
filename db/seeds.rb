@@ -41,9 +41,9 @@ end
 
 puts "seeding cats"
 cats_hash.each do |cat|
-  if cat["media"] != {} && cat["name"]["$t"] != "FOSTER HOMES NEEDED" && cat["description"] != {}
+  # if cat["media"] != {} && cat["name"]["$t"] != "FOSTER HOMES NEEDED" && cat["description"] != {}
     Pet.create(name: cat["name"]["$t"], species: "cat", age: cat["age"]["$t"], size: cat["size"]["$t"], sex: cat["sex"]["$t"], description: cat["description"]["$t"], picture: cat["media"]["photos"]["photo"][3]["$t"], email: cat["contact"]["email"]["$t"], city: cat["contact"]["city"]["$t"], state: cat["contact"]["state"]["$t"], zip: cat["contact"]["zip"]["$t"], petfinder_shelterId: cat["shelterId"]["$t"])
-  end
+  # end
 end
 
 # Pet.create(name: "Lily", species: "dog", age: 2, weight: 5, color: "brown", sex: "female", description: "Lily is a fat dachshund whose coat resembles the wood grain of a fine piece of furniture. She needs to be held for at least three hours a day.", picture: "http://dachshundrescueofohio.org/assets/images/donate-doggy.jpg", shelter_id: 1)
