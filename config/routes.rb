@@ -11,6 +11,10 @@ Rails.application.routes.draw do
       post '/users/:id/user_pets', to: 'user_pets#create'
       get '/users/:id/user_pets/:id', to: 'user_pets#show'
       delete '/users/:id/user_pets/:id', to: 'user_pets#destroy'
+
+      post '/auth', to: 'auth#create'
+      get '/current_user', to: 'auth#show'
+      
     end
   end
 end
