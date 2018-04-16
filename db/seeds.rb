@@ -7,44 +7,50 @@ require 'rest-client'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-all_dogs = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=dog&location=NY&count=200&output=basic&format=json")
-dogs_hash = JSON.parse(all_dogs)
-dogs_hash = dogs_hash["petfinder"]["pets"]["pet"]
-
-all_cats = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=cat&location=NY&count=200&output=basic&format=json")
-cats_hash = JSON.parse(all_cats)
-cats_hash = cats_hash["petfinder"]["pets"]["pet"]
-
-all_shelters = RestClient.get("http://api.petfinder.com/shelter.find?key=#{ENV['PETFINDER_API_KEY']}&location=NY&count=200&output=basic&format=json")
-shelters_hash = JSON.parse(all_shelters)
-shelters_hash = shelters_hash["petfinder"]["shelters"]["shelter"]
-
-puts "seeding shelters"
-shelters_hash.each do |shelter|
-  Shelter.create(name: shelter["name"]["$t"], password: "dogs", city: shelter["city"]["$t"], state: shelter["state"]["$t"], zip: shelter["zip"]["$t"], email: shelter["email"]["$t"], phone: shelter["phone"]["$t"], petfinder_shelterId: shelter["id"]["$t"])
-end
+# all_dogs = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=dog&location=NY&count=200&output=basic&format=json")
+# dogs_hash = JSON.parse(all_dogs)
+# dogs_hash = dogs_hash["petfinder"]["pets"]["pet"]
+#
+# all_cats = RestClient.get("http://api.petfinder.com/pet.find?key=#{ENV['PETFINDER_API_KEY']}&animal=cat&location=NY&count=200&output=basic&format=json")
+# cats_hash = JSON.parse(all_cats)
+# cats_hash = cats_hash["petfinder"]["pets"]["pet"]
+#
+# all_shelters = RestClient.get("http://api.petfinder.com/shelter.find?key=#{ENV['PETFINDER_API_KEY']}&location=NY&count=200&output=basic&format=json")
+# shelters_hash = JSON.parse(all_shelters)
+# shelters_hash = shelters_hash["petfinder"]["shelters"]["shelter"]
+#
+# puts "seeding shelters"
+# shelters_hash.each do |shelter|
+#   Shelter.create(name: shelter["name"]["$t"], password: "dogs", city: shelter["city"]["$t"], state: shelter["state"]["$t"], zip: shelter["zip"]["$t"], email: shelter["email"]["$t"], phone: shelter["phone"]["$t"], petfinder_shelterId: shelter["id"]["$t"])
+# end
 # Shelter.create(name: "North Shore Animal League", password: "dogs", street: "25 Davis Ave", city: "Port Washington", state: "NY", zip: 11050)
 
 # {name: "Brooklyn Animal Resource Coalition", password: "dogs", street: "253 Wythe Ave", city: "Brooklyn", state: "NY", zip: 11249}, {name: "Jackrabbit Animal Shelter", password: "dogs", street: "8110 Jackrabbit Rd", city: "Houston", state: "TX", zip: 77095})
 
 puts "seeding users"
-User.create(name: "Chris", password: "dogs")
+# User.create(name: "Chris", password: "dogs")
+admin = User.new
+admin.email = 'admin@petsy.com'
+admin.password = 'dogs'
+admin.password_confirmation = 'dogs'
+admin.admin = true
+admin.save
 
 # {name: "Charlie", password: "dogs"}, {name: "Gaby", password: "dogs"})
 
-puts "seeding dogs"
-dogs_hash.each do |dog|
-  if dog["media"] != {}
-    Pet.create(name: dog["name"]["$t"], species: "dog", age: dog["age"]["$t"], size: dog["size"]["$t"], sex: dog["sex"]["$t"], description: dog["description"]["$t"], picture: dog["media"]["photos"]["photo"][3]["$t"], email: dog["contact"]["email"]["$t"], city: dog["contact"]["city"]["$t"], state: dog["contact"]["state"]["$t"], zip: dog["contact"]["zip"]["$t"], petfinder_shelterId: dog["shelterId"]["$t"])
-  end
-end
-
-puts "seeding cats"
-cats_hash.each do |cat|
-  # if cat["media"] != {} && cat["name"]["$t"] != "FOSTER HOMES NEEDED" && cat["description"] != {}
-    Pet.create(name: cat["name"]["$t"], species: "cat", age: cat["age"]["$t"], size: cat["size"]["$t"], sex: cat["sex"]["$t"], description: cat["description"]["$t"], picture: cat["media"]["photos"]["photo"][3]["$t"], email: cat["contact"]["email"]["$t"], city: cat["contact"]["city"]["$t"], state: cat["contact"]["state"]["$t"], zip: cat["contact"]["zip"]["$t"], petfinder_shelterId: cat["shelterId"]["$t"])
-  # end
-end
+# puts "seeding dogs"
+# dogs_hash.each do |dog|
+#   if dog["media"] != {}
+#     Pet.create(name: dog["name"]["$t"], species: "dog", age: dog["age"]["$t"], size: dog["size"]["$t"], sex: dog["sex"]["$t"], description: dog["description"]["$t"], picture: dog["media"]["photos"]["photo"][3]["$t"], email: dog["contact"]["email"]["$t"], city: dog["contact"]["city"]["$t"], state: dog["contact"]["state"]["$t"], zip: dog["contact"]["zip"]["$t"], petfinder_shelterId: dog["shelterId"]["$t"])
+#   end
+# end
+#
+# puts "seeding cats"
+# cats_hash.each do |cat|
+#   # if cat["media"] != {} && cat["name"]["$t"] != "FOSTER HOMES NEEDED" && cat["description"] != {}
+#     Pet.create(name: cat["name"]["$t"], species: "cat", age: cat["age"]["$t"], size: cat["size"]["$t"], sex: cat["sex"]["$t"], description: cat["description"]["$t"], picture: cat["media"]["photos"]["photo"][3]["$t"], email: cat["contact"]["email"]["$t"], city: cat["contact"]["city"]["$t"], state: cat["contact"]["state"]["$t"], zip: cat["contact"]["zip"]["$t"], petfinder_shelterId: cat["shelterId"]["$t"])
+#   # end
+# end
 
 # Pet.create(name: "Lily", species: "dog", age: 2, weight: 5, color: "brown", sex: "female", description: "Lily is a fat dachshund whose coat resembles the wood grain of a fine piece of furniture. She needs to be held for at least three hours a day.", picture: "http://dachshundrescueofohio.org/assets/images/donate-doggy.jpg", shelter_id: 1)
 #
