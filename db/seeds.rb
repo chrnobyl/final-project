@@ -28,7 +28,13 @@ require 'rest-client'
 # {name: "Brooklyn Animal Resource Coalition", password: "dogs", street: "253 Wythe Ave", city: "Brooklyn", state: "NY", zip: 11249}, {name: "Jackrabbit Animal Shelter", password: "dogs", street: "8110 Jackrabbit Rd", city: "Houston", state: "TX", zip: 77095})
 
 puts "seeding users"
-User.create(name: "Chris", password: "dogs")
+# User.create(name: "Chris", password: "dogs")
+admin = User.new
+admin.email = 'admin@petsy.com'
+admin.password = 'dogs'
+admin.password_confirmation = 'dogs'
+admin.admin = true
+admin.save
 
 # {name: "Charlie", password: "dogs"}, {name: "Gaby", password: "dogs"})
 
