@@ -1,5 +1,9 @@
 class Api::V1::UserPetsController < ApplicationController
+  before_action :authenticate_user
+  before_action :set_user_pets, only: [:create :show, :destroy]
+
   def index
+    user = User.find_by(email: current_user.email)
     user_pets = User.first.pets
     render json: user_pets
   end
