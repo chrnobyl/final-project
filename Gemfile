@@ -47,3 +47,5 @@ gem 'rest-client'
 gem 'figaro'
 
 gem 'dotenv-rails'
+
+gem 'knock'

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  include Knock::Authenticable
 
   private
 
@@ -12,24 +13,6 @@ class ApplicationController < ActionController::API
     @current_user ||= User.find_by(id: user_id)
   end
 
-  def user_id
-    decoded_token.first['user_id']
-  end
 
-  def decoded_token
-    if token
-      begin
-        JWT.decode(token, ENV['JWT_SECRET'], true, { algorithm: false })
-      rescue JWT::DecodeError
-        return [{}]
-      end
-    else
-      [{}]
-    end
-  end
 
-  def token
-    request.headers['Authorization']
-  end
-  
 end

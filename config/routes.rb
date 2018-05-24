@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
@@ -12,9 +13,9 @@ Rails.application.routes.draw do
       get '/users/:id/user_pets/:id', to: 'user_pets#show'
       delete '/users/:id/user_pets/:id', to: 'user_pets#destroy'
 
-      post '/auth', to: 'auth#create'
-      get '/current_user', to: 'auth#show'
-      
+      # post '/auth', to: 'auth#create'
+      # get '/current_user', to: 'auth#show'
+
     end
   end
 end
