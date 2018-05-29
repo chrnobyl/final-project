@@ -30,6 +30,7 @@ require 'rest-client'
 puts "seeding users"
 # User.create(name: "Chris", password: "dogs")
 admin = User.new
+admin.username = "Chris"
 admin.email = 'admin@petsy.com'
 admin.password = 'dogs'
 admin.password_confirmation = 'dogs'
