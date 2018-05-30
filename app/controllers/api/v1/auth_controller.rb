@@ -1,7 +1,8 @@
 class Api::V1::AuthController < ApplicationController
-  before_action :authorize_user, only: [:show]
+  before_action :authenticate_user, only: [:show]
 
   def show
+    user = User.find_by(id: params[:id])
     render json: {
       id: current_user.id,
       name: current_user.username
