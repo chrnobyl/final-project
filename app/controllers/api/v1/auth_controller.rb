@@ -1,5 +1,5 @@
 class Api::V1::AuthController < ApplicationController
-  before_action :authenticate_user, only: [:show]
+  # before_action :authenticate_user, only: [:create, :show]
 
   def show
     user = User.find_by(id: params[:id])

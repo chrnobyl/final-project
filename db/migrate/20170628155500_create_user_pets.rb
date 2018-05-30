@@ -2,7 +2,7 @@ class CreateUserPets < ActiveRecord::Migration[5.1]
   def change
     create_table :user_pets do |t|
       t.integer :user_id
-      t.integer :pet_id
+      t.integer :petfinder_id
       t.string :pet_name
       t.string :animal
       t.string :sex
