@@ -10,7 +10,8 @@ class Api::V1::AuthController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
+    binding.pry
+    user = User.find_by(username: params[:username])
 
     if user.present? && user.authenticate(params[:password])
       render json: {
