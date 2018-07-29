@@ -49,3 +49,5 @@ gem 'figaro'
 gem 'dotenv-rails'
 
 gem 'knock'
+
+gem 'jwt'

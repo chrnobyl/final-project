@@ -163,6 +163,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   figaro
+  jwt
   knock
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)

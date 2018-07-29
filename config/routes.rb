@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       delete '/users/:id/user_pets/:id', to: 'user_pets#destroy'
 
       post '/auth', to: 'auth#create'
-      get '/current_user', to: 'users#show'
+      get '/current_user', to: 'auth#show'
 
     end
   end
