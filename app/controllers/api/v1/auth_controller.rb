@@ -2,12 +2,14 @@ class Api::V1::AuthController < ApplicationController
   # before_action :authenticate_user, only: [:create, :show]
 
   def show
-    byebug
-    user = User.find_by(id: params[:id])
-    render json: {
-      id: current_user.id,
-      name: current_user.username
-    }
+    if current_user
+      render json: {
+        id: current_user.id,
+        username: current_user.username
+      }
+    else
+      render json: [{}], status: 404
+    end
   end
 
   def create
