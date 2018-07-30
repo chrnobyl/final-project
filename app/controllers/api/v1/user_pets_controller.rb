@@ -3,7 +3,8 @@ class Api::V1::UserPetsController < ApplicationController
   # before_action :set_user_pets, only: [:create, :show, :destroy]
 
   def index
-    user = User.find_by(email: current_user.email)
+    byebug
+    user = User.find_by(username: current_user.username)
     user_pets = user.user_pets
     render json: user_pets
   end
